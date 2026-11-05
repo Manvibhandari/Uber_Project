@@ -1,0 +1,21 @@
+
+# Environment variables
+.env
+
+# Dependencies
+node_modules/
+
+# Build output
+target/
+dist/
+
+# IDE files
+.idea/
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# Local project structure reference
+project-structure.txt
