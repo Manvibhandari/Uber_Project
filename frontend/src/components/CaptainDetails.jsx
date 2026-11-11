@@ -1,0 +1,48 @@
+
+import React from 'react'
+import { useCaptain } from '../context/CaptainContext'
+
+const CaptainDetails = () => {
+  const { captain } = useCaptain()
+  const fullName = captain?.fullName
+    ? `${captain.fullName.firstName} ${captain.fullName.lastName}`
+    : "Captain"
+  const vehicle = captain?.vehicle || {}
+
+    return (
+      <div>
+        <div className='flex items-center justify-between'>
+          <div className='flex items-center justify-start gap-3'>
+            <img className='h-10 w-10 rounded-full object-cover' src="/CaptainProf.png" alt="" />
+            <div>
+              <h4 className='text-lg font-medium capitalize'>{fullName}</h4>
+              <p className='text-xs text-gray-500'>{vehicle.vehicleType || "Vehicle"} {vehicle.plate ? `• ${vehicle.plate}` : ""}</p>
+            </div>
+          </div>
+          <div>
+            <h4 className='text-xl font-semibold'>₹2095.20</h4>
+            <p className='text-sm text-gray-600'>Earned</p>
+          </div>
+        </div>
+        <div className='flex p-3 mt-8 bg-gray-100 rounded-xl justify-center gap-5 items-start'>
+          <div className='text-center'>
+            <i className="text-3xl mb-2 font-thin ri-timer-line"></i>
+            <h5 className='text-lg font-medium'>10.2</h5>
+            <p className='text-sm text-gray-600'>Hours Online</p>
+          </div>
+          <div className='text-center'>
+            <i className="text-3xl mb-2 font-thin ri-speed-up-line"></i>
+            <h5 className='text-lg font-medium'>120.5 km</h5>
+            <p className='text-sm text-gray-600'>Total Distance</p>
+          </div>
+          <div className='text-center'>
+            <i className="text-3xl mb-2 font-thin ri-booklet-line"></i>
+            <h5 className='text-lg font-medium'>8</h5>
+            <p className='text-sm text-gray-600'>Trips Completed</p>
+          </div>
+        </div>
+      </div>
+    )
+}
+
+export default CaptainDetails
